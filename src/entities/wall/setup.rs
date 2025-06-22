@@ -6,7 +6,7 @@ use crate::collider::CollisionType;
 pub(super) fn setup(mut commands: Commands) {
     // TOP WALL
     commands.spawn((
-        Transform::from_xyz(0., 180., 1.),
+        Transform::from_xyz(0., 120., 1.),
         RigidBody::Static,
         Collider::rectangle(640., 1.),
         CollisionType::Wall,

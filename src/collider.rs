@@ -5,5 +5,7 @@ use bevy::prelude::*;
 pub enum CollisionType {
     #[default]
     Player,
+    PlayerAttack,
+    Enemy,
     Wall,
 }

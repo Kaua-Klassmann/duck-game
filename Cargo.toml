@@ -7,11 +7,12 @@ edition = "2024"
 resolver = "2"
 
 [profile.release]
+opt-level = "z"
 lto = true
 codegen-units = 1
 strip = true
 
 [dependencies]
 avian2d = "0.3.1"
-bevy = { version = "0.16.1", features = ["jpeg"] }
+bevy = "0.16.1"
 web-sys = "0.3.77"
