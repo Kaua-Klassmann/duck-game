@@ -1,7 +1,11 @@
+use std::sync::OnceLock;
+
 use avian2d::prelude::*;
 use bevy::prelude::*;
 
 use crate::{collider::CollisionType, components};
+
+static SPRITE: OnceLock<Handle<Image>> = OnceLock::new();
 
 pub(super) fn setup(
     mut commands: Commands,
@@ -26,7 +30,7 @@ pub(super) fn setup(
     commands.spawn((
         *player_position,
         Sprite {
-            image: asset_server.load("rock.png"),
+            image: SPRITE.get_or_init(|| asset_server.load("rock.png")).clone(),
             ..Default::default()
         },
         RigidBody::Dynamic,
